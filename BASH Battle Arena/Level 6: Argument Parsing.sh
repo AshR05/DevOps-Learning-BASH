@@ -2,15 +2,10 @@
 
 #!/bin/bash
 
-if [ -z "$1" ]; then
+filename="$1"
+
+if [ -z $filename ]; then
     echo "No file provided"
-    exit 1
+else
+    wc -l "$filename"
 fi
-
-if [ ! -f "$1" ]; then
-    echo "File not found!"
-    exit 1
-fi
-
-LINE_COUNT=$(wc -l < "$1")
-echo "The file '$1' has $LINE_COUNT lines."
